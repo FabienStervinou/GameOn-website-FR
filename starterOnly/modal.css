@@ -491,6 +491,7 @@ signup {
   height: 100%;
   display: block;
   padding: 0;
+  object-fit: cover;
 }
 
 .copyrights {
@@ -552,6 +553,7 @@ footer {
 
 @keyframes modalopen {
   from {
+    display: block;
     opacity: 0;
     transform: translateY(-150px);
   }
@@ -565,7 +567,8 @@ footer {
     opacity: 1;
   }
   to {
-    transform: translateY(-150px);
     opacity: 0;
+    transform: translateY(150px);
+    display: none;
   }
 }
