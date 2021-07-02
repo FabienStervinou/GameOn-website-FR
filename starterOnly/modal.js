@@ -11,12 +11,14 @@ function editNav() {
 const modalbg = document.querySelector(".bground");
 const modalBtn = document.querySelectorAll(".modal-btn");
 const modalClose = document.querySelectorAll(".close");
+const validation = document.getElementById("btn-submit");
 const formData = document.querySelectorAll(".formData");
 const content = document.querySelectorAll(".content")[0];
 
 // launch and close modal event
 modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
 modalClose.forEach((btn) => btn.addEventListener("click", closeModal));
+validation.addEventListener("click", validate);
 
 // launch modal form
 function launchModal() {
@@ -30,4 +32,80 @@ function closeModal() {
   setTimeout(() => {
     modalbg.style.display = "none";
   }, 800);
+}
+
+function checkIfTrueValue(tab) {
+  return tab === "true";
+}
+
+function validate(e) {
+  e.preventDefault();
+
+  let firstForm = document.getElementById("first");
+  let lastForm = document.getElementById("last");
+  let emailForm = document.getElementById("email");
+  let emailRegex = /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+  let birthdate = document.getElementById("birthdate");
+  let quantity = document.getElementById("quantity");
+  // Array radio input city
+  let cityForm = document.querySelectorAll("[id^=location]");
+  let cityFormChecked = document.querySelectorAll("[id^=location]:checked");
+  console.log('cityform', cityFormChecked.length);
+  let CGUForm = document.getElementById("checkbox1");
+
+  let isValidate = true;
+
+  if (firstForm.value.length < 2) {
+    firstForm.parentNode.dataset.errorVisible = true;
+    isValidate = false;
+  } else {
+    firstForm.parentNode.dataset.errorVisible = false;
+  }
+  
+  if (lastForm.value.length < 2) {
+    lastForm.parentNode.dataset.errorVisible = true;
+    isValidate = false;
+  } else {
+    lastForm.parentNode.dataset.errorVisible = false;
+  }
+
+  if (emailRegex.test(emailForm.value) == false) {
+    emailForm.parentNode.dataset.errorVisible = true;
+    isValidate = false;
+  } else {
+    emailForm.parentNode.dataset.errorVisible = false;
+  }
+
+  if (birthdate.value.length == "") {
+    birthdate.parentNode.dataset.errorVisible = true;
+    isValidate = false;
+  } else {
+    birthdate.parentNode.dataset.errorVisible = false;
+  }
+
+  if (quantity.value.length == "" || isNaN(quantity.value) ) {
+    quantity.parentNode.dataset.errorVisible = true;
+    isValidate = false;
+  } else {
+    quantity.parentNode.dataset.errorVisible = false;
+  }
+
+  if (cityFormChecked.length <= 0) {
+    cityForm[0].parentNode.dataset.errorVisible = true;
+    isValidate = false;
+  } else {
+    cityForm[0].parentNode.dataset.errorVisible = false;
+  }
+
+  if (CGUForm.checked == false) {
+    CGUForm.parentNode.dataset.errorVisible = true;
+    isValidate = false;
+  } else {
+    CGUForm.parentNode.dataset.errorVisible = false;
+  }
+
+  if (isValidate == true) {
+    document.getElementById("reserve").submit();
+  }
+  return isValidate;
 }

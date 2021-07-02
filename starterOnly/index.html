@@ -60,10 +60,13 @@
               name="reserve"
               action="index.html"
               method="get"
-              onsubmit="return validate();"
+              id="reserve"
             >
+            <!-- Prénom -->
               <div
               class="formData"  
+              data-error-visible="false"
+              data-error="Le prénom doit contenir plus de deux caractères"
               >
                 <label for="first">Prénom</label><br>
                 <input
@@ -71,12 +74,15 @@
                   type="text"
                   id="first"
                   name="first"
-                  minlength="2" 
-                  data-error="Le champ Prénom a un minimum de 2 caractères" 
                 /><br>
               </div>
+
+              <!-- Nom -->
               <div
-                class="formData">
+                class="formData"
+                data-error-visible="false"
+                data-error="Le champ du nom de famille a un minimum de 2 caractères"
+                >
                 <label for="last">Nom</label><br>
                 <input
                   class="text-control"
@@ -85,8 +91,13 @@
                   name="last"
                 /><br>
               </div>
+
+              <!-- Email -->
               <div
-                class="formData">
+                class="formData"
+                data-error-visible="false"
+                data-error="Cette adresse email n'est pas valide"
+                >
                 <label for="email">E-mail</label><br>
                 <input
                   class="text-control"
@@ -95,8 +106,13 @@
                   name="email"
                 /><br>
               </div>
+
+              <!-- Date de naissance -->
               <div
-                class="formData">
+                class="formData"
+                data-error-visible="false"
+                data-error="La date de naissance doit être complète"
+                >
                 <label for="birthdate">Date de naissance</label><br>
                 <input
                   class="text-control"
@@ -105,14 +121,24 @@
                   name="birthdate"
                 /><br>
               </div>
+
+              <!-- Nombre tournoi -->
               <div
-                class="formData">
+                class="formData"
+                data-error-visible="false"
+                data-error="Merci de saisir une valeur numérique"
+                >
                 <label for="quantity">À combien de tournois GameOn avez-vous déjà participé ?</label><br>
                 <input type="number" class="text-control" id="quantity" name="quantity" min="0" max="99">
               </div>
+
+              <!-- Choix villes -->
               <p class="text-label">Quelles villes ?</p>
               <div
-                class="formData">
+                class="formData"
+                data-error-visible="false"
+                data-error="Merci de choisir une ville"
+                >
                 <input
                   class="checkbox-input"
                   type="radio"
@@ -181,8 +207,12 @@
                 >
               </div>
 
+              <!-- CGU & newletter -->
               <div
-                class="formData">
+                class="formData"
+                data-error-visible="false"
+                data-error="Merci de lire et d'accepté les conditions d'utilisation"
+                >
                 <input
                   class="checkbox-input"
                   type="checkbox"
@@ -201,7 +231,7 @@
                 />
                 <label class="checkbox2-label" for="checkbox2">
                   <span class="checkbox-icon"></span>
-                  Je Je souhaite être prévenu des prochains évènements.
+                  Je souhaite être prévenu des prochains évènements.
                 </label>
                 <br>
               </div>
@@ -209,6 +239,7 @@
                 class="btn-submit"
                 type="submit"
                 class="button"
+                id="btn-submit"
                 value="C'est parti"
               />
             </form>
