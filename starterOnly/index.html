@@ -12,23 +12,20 @@
     />
   </head>
   <body>
-    <div class="topnav" id="myTopnav">
+    <header class="topnav" id="myTopnav">
       <div class="header-logo">
       <img alt="logo" src="Logo.png" width="auto" height="auto" />
-    </div>
-    <div class="main-navbar">
-      
-      <a href="#" class="active"><span>Accueil</span></a>
-      <a href="#"><span>Détails de l'évènement</span></a>
-      <a href="#"><span>À propos</span></a>
-      <a href="#"><span>Contact</span></a>
-      <a href="#"><span>Évènements passés</span></a>
+      </div>
+      <div class="main-navbar">
+        <a href="#" class="active"><span>Détails de l'évènement</span></a>
+        <a href="#"><span>À propos</span></a>
+        <a href="#"><span>Contact</span></a>
+        <a href="#"><span>Évènements passés</span></a>
+      </div>
       <a href="javascript:void(0);" class="icon" onclick="editNav()">
         <i class="fa fa-bars"></i>
       </a>
-    </div>
-    </div>
-  </div>
+    </header>
     <main>
       <div class="hero-section">
         <div class="hero-content">
@@ -236,13 +233,18 @@
                 <br>
               </div>
               <input
-                class="btn-submit"
+                class="btn-submit button"
                 type="submit"
-                class="button"
                 id="btn-submit"
                 value="C'est parti"
               />
             </form>
+          </div>
+          <div class="validation">
+            <p>Merci ! Votre réservation a été reçue.</p>
+            <button class="btn-signup modal-btn validation-close">
+              Fermer
+            </button>
           </div>
         </div>
       </div>

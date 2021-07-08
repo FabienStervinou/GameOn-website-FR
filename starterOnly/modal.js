@@ -11,6 +11,7 @@ function editNav() {
 const modalbg = document.querySelector(".bground");
 const modalBtn = document.querySelectorAll(".modal-btn");
 const modalClose = document.querySelectorAll(".close");
+const validationClose = document.querySelectorAll(".validation-close");
 const validation = document.getElementById("btn-submit");
 const formData = document.querySelectorAll(".formData");
 const content = document.querySelectorAll(".content")[0];
@@ -18,17 +19,24 @@ const content = document.querySelectorAll(".content")[0];
 // launch and close modal event
 modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
 modalClose.forEach((btn) => btn.addEventListener("click", closeModal));
-validation.addEventListener("click", validate);
+validationClose.forEach((btn) => btn.addEventListener("click", closeModal));
+validation.addEventListener("click", validate);  
+
+// CLose modal if user clic outside modal content
+window.onclick = function(e) {
+  if (e.target == modalbg) {
+    closeModal();
+  }
+}
 
 // launch modal form
 function launchModal() {
   content.style.animationName = "modalopen";
-  modalbg.style.display = "block";
+  modalbg.style.display = "flex";
 }
 
 function closeModal() {
   content.style.animationName = "modalclose";
-  content.style.animationFillMode = "forwards";
   setTimeout(() => {
     modalbg.style.display = "none";
   }, 800);
@@ -36,6 +44,16 @@ function closeModal() {
 
 function checkIfTrueValue(tab) {
   return tab === "true";
+}
+
+function validationMessage() {
+  let validationText = document.querySelector('.validation');
+  let modalBody = document.querySelector('.modal-body');
+  modalBody.style.display = 'none';
+  validationText.style.display = 'block';
+  setTimeout(() => {
+    document.getElementById("reserve").submit();
+  }, 5000);
 }
 
 function validate(e) {
@@ -50,7 +68,6 @@ function validate(e) {
   // Array radio input city
   let cityForm = document.querySelectorAll("[id^=location]");
   let cityFormChecked = document.querySelectorAll("[id^=location]:checked");
-  console.log('cityform', cityFormChecked.length);
   let CGUForm = document.getElementById("checkbox1");
 
   let isValidate = true;
@@ -105,7 +122,7 @@ function validate(e) {
   }
 
   if (isValidate == true) {
-    document.getElementById("reserve").submit();
+    validationMessage();
   }
   return isValidate;
 }
