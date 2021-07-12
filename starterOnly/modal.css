@@ -223,7 +223,9 @@ main {
   top: 48px;
   width: 100%;
   max-width: 500px;
-  height: fit-content;
+  /* height: fit-content; */
+  max-height: calc(100vh - 40px);
+  display: flex;
   overflow: hidden;
   border-radius: 10px 10px 0 0;
   padding-top: 20px;
@@ -248,6 +250,10 @@ main {
     margin-top: 4px;
     margin-bottom: 6px;
     line-height: .6;
+  }
+
+  .validation {
+    min-height: 750px;
   }
 }
 
@@ -425,8 +431,15 @@ input[data-error]::after {
 
 .validation {
   display: none;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
   padding: 30px 20px;
   text-align: center;
+  width: 100%;
+  max-width: 500px;
+  height: 100%;
+  max-height: 800px;
 }
 
 /* custom select styles */
@@ -654,6 +667,7 @@ footer {
   }
 }
 
+/* Modal animation */
 @keyframes modalopen {
   from {
     display: block;

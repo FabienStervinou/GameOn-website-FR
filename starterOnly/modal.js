@@ -35,6 +35,7 @@ function launchModal() {
   modalbg.style.display = "flex";
 }
 
+// close modal with delay for animation
 function closeModal() {
   content.style.animationName = "modalclose";
   setTimeout(() => {
@@ -42,20 +43,18 @@ function closeModal() {
   }, 800);
 }
 
-function checkIfTrueValue(tab) {
-  return tab === "true";
-}
-
+// view valdiation modal
 function validationMessage() {
   let validationText = document.querySelector('.validation');
   let modalBody = document.querySelector('.modal-body');
   modalBody.style.display = 'none';
-  validationText.style.display = 'block';
+  validationText.style.display = 'flex';
   setTimeout(() => {
     document.getElementById("reserve").submit();
   }, 5000);
 }
 
+// validate form and input
 function validate(e) {
   e.preventDefault();
 
