@@ -103,6 +103,10 @@ img {
   .header-logo img {
     height: 35px;
   }
+
+  .topnav {
+    height: auto;
+  }
 }
 
 @media screen and (max-width: 900px) {
