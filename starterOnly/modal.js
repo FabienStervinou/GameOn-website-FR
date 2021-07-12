@@ -22,7 +22,7 @@ modalClose.forEach((btn) => btn.addEventListener("click", closeModal));
 validationClose.forEach((btn) => btn.addEventListener("click", closeModal));
 validation.addEventListener("click", validate);  
 
-// CLose modal if user clic outside modal content
+// close modal if user clic outside modal content
 window.onclick = function(e) {
   if (e.target == modalbg) {
     closeModal();
