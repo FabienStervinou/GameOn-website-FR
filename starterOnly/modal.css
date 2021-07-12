@@ -93,6 +93,12 @@ img {
   padding: 7px 7px;
 }
 
+.topnav .icon img {
+  width: 1.5em;
+  height: auto;
+  padding: 0;
+}
+
 @media screen and (min-width: 800px) {
   .header-logo img {
     height: 35px;
