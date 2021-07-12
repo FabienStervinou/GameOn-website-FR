@@ -33,6 +33,11 @@ window.onclick = function(e) {
 function launchModal() {
   content.style.animationName = "modalopen";
   modalbg.style.display = "flex";
+
+  // close menu if user open the modal
+  if (document.getElementById("myTopnav").className === "topnav responsive") {
+    editNav();
+  }
 }
 
 // close modal with delay for animation
